@@ -5,7 +5,7 @@ void displayPathtoPrincess(int n, char grid[101][101]){
     int row, col, x, y;
     short mario[2], princess[2]; //declaring short arrays of size 2
 
-  for(row = 0; row < n; row++) { //traverse the 2d array by rows and cols
+  for(row = 0; row < n; row++) { //traverse the 2d array by rows and columns
     for(col = 0; col < n; col++) {
       if (grid[row][col] == 'm') { //if current index contains the bot 'm'
         mario[0] = row; //set x coordinate portion of mario array to current row
@@ -18,6 +18,7 @@ void displayPathtoPrincess(int n, char grid[101][101]){
     }
   }
 
+  //Horizontal movements 
   if ((x = princess[1] - mario[1]) < 0) { //if delta of x coordinates are negative
     for(; x < 0; x++) //while delta x is negative, increment x in order to move left
       printf("LEFT\n");
@@ -25,7 +26,8 @@ void displayPathtoPrincess(int n, char grid[101][101]){
     for(; x > 0; x--) //while delta x is positive, decement x to move right
       printf("RIGHT\n");
   }
-
+    
+  //Vertical Movements
   if ((y = princess[0] - mario[0]) < 0) { //if delta of y coordinates are negative
     for(; y < 0; y++) //while delta y is negative, increment y in order to move up
       printf("UP\n");
